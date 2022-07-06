@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Pokemons from './pages/Pokemons';
+import PokemonDetail from './pages/PokemonDetail';
+import { PokemonContext } from './helpers/PokemonContext';
 
 function App() {
+
+  const [pokemonDetailUrl,setPokemonDetailUrl] = useState(window.localStorage.getItem('pokemonUrl'));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PokemonContext.Provider value={{ pokemonDetailUrl,setPokemonDetailUrl }}>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={ <Pokemons /> }/>
+        <Route path='/pokemon' element={ <PokemonDetail /> } />
+      </Routes>
+    </PokemonContext.Provider>
   );
 }
 
