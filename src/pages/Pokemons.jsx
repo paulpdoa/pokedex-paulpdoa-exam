@@ -14,7 +14,6 @@ const Pokemons = () => {
             try {
                 const data = await axios.get(endPoint, { signal: abortCont.signal });
                 setPokemons(data.data);
-                console.log(data.data);
             }
             catch(err) {
                 console.log(err);

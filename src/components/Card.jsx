@@ -17,7 +17,7 @@ const Card = ({ name,url }) => {
   return (
     <div className="card" style={{width: "18rem"}}>
       <h1 className="card-title">{ name.slice(0,1).toUpperCase() + name.slice(1,name.length) }</h1>
-      <button className="btn btn-primary btn-sm" onClick={initialPokemonValue} to='/pokemon'>{ url }</button>
+      <button className="btn btn-primary btn-sm" onClick={initialPokemonValue} to='/pokemon'>View Detail</button>
     </div>
   )
 }
