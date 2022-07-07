@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { useContext,useEffect,useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { PokemonContext } from '../helpers/PokemonContext';
 
 const PokemonDetail = () => {
     
     const { pokemonDetailUrl } = useContext(PokemonContext);
     const [pokemon,setPokemon] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         window.localStorage.setItem('pokemonUrl', pokemonDetailUrl);
@@ -28,6 +30,7 @@ const PokemonDetail = () => {
 
   return (
     <div className="pokemon container">
+        <button onClick={() => navigate(-1)} className="back_btn btn btn-secondary">&#60; Go Back</button>
         <h1 className="pokemon_title">Pokemon Detail</h1>
         <div className="pokemon_info">
             <img className="pokemon_img" src={ pokemon && pokemon.sprites.front_default} alt={ pokemon && pokemon.name } />

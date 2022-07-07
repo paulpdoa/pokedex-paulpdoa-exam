@@ -53,6 +53,13 @@ body {
 .pokemon_stats {
   margin-top: 2em;
 }
-.pokemon_stats h1,.pokemon_title {
+.pokemon_stats h1 {
   font-weight: 700;
+}
+.pokemon_title {
+  font-weight: 700;
+  margin-top: 0.5em;
+}
+.back_btn {
+  width:fit-content;
 }
